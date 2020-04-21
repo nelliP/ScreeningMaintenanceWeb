@@ -1,0 +1,21 @@
+<span *ngIf="isLoading | async">Laddar...</span>
+<a routerLink="/users/new">Ny användare</a>
+<div class="panel panel-default">
+    <div class="panel-heading">Användare</div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Namn</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users | async">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td><a [routerLink]="[user.id]">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
